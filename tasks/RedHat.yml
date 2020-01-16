@@ -1,0 +1,25 @@
+---
+# tasks file for jfrog-cli
+
+- name: check jfrog version
+  shell: "jfrog --version 2>&1 | grep 'jfrog version {{ jfrog_cli_version }}'"
+  failed_when: false
+  changed_when: false
+  register: version_match
+
+- name: download jfrog cli {{ jfrog_cli_version }}
+  get_url:
+    url: "{{ jfrog_cli_base_url }}/{{ jfrog_cli_version }}/jfrog-cli-linux-amd64/jfrog"
+    dest: "/tmp/jfrog"
+  when: version_match.rc != 0
+
+- name: copy jfrog executable
+  become: yes
+  copy:
+    src: "/tmp/jfrog"
+    dest: "/usr/bin/jfrog"
+    owner: root
+    group: root
+    mode: 0755
+    remote_src: yes
+  when: version_match.rc != 0

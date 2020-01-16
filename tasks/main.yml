@@ -1,0 +1,8 @@
+---
+# tasks file for jfrog-cli
+
+- include_tasks: Windows.yml
+  when: ansible_os_family == "Windows"
+
+- include_tasks: RedHat.yml
+  when: ansible_os_family == "RedHat"
