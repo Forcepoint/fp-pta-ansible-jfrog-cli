@@ -10,7 +10,7 @@
 - name: download jfrog cli {{ jfrog_cli_version }}
   get_url:
     url: "{{ jfrog_cli_base_url }}/{{ jfrog_cli_version }}/jfrog-cli-linux-amd64/jfrog"
-    dest: "/tmp/jfrog"
+    dest: "/tmp/"
   when: version_match.rc != 0
 
 - name: copy jfrog executable
