@@ -1,5 +1,5 @@
 ---
 # defaults file for jfrog-cli
 
-jfrog_cli_version: "1.33.1"
+jfrog_cli_version: "1.34.1"
 jfrog_cli_base_url: "https://dl.bintray.com/jfrog/jfrog-cli-go"
