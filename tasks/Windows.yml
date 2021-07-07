@@ -4,3 +4,4 @@
   win_chocolatey:
     name: jfrog-cli
     version: "{{ jfrog_cli_version }}"
+    state: downgrade
