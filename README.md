@@ -17,6 +17,7 @@ None
 ### OPTIONAL
 
 * jfrog_cli_version: The version of the client to install.
+* jfrog_cli_version_type: Versions up to 1.52.0 use 'v1' while newer ones use 'v2'.
 * jfrog_cli_base_url: The URL to install from. Useful for downloading from Artifactory. 
   This variable is not used/honored for runs on Windows because chocolatey is used 
   and doing offline chocolatey installs is not trivial. Not worth automating ATM.
@@ -30,8 +31,9 @@ None
     - name: jfrog cli
       hosts: all
       vars:
-        jfrog_cli_version: "1.22.1"
-        jfrog_cli_base_url: "https://artifactory.COMPANY.com/artifactory/dl.bintray.com-jfrog-jfrog-cli-go"
+        jfrog_cli_version: "1.44.0"
+        jfrog_cli_version_type: "v1"
+        jfrog_cli_base_url: "https://artifactory.COMPANY.com/artifactory/releases.jfrog.io-artifactory-jfrog-cli"
       roles:
         - role: jfrog-cli
 
